@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyGarage
+namespace MyGarage.Vehicles
 {
-    class AirCraft
+    abstract class Vehicle
     {
         public int FuelCapacity { get; set; }
-        public AirCraftColor AirCraftColor { get; set; }
+        public VehicleColor VehicleColor { get; set; }
         public int PassengerOccupancy { get; set; }
-        public bool IsFlying { get; set; }
+        public bool IsMoving { get; set; }
+
 
         public void Refuel()
         {
@@ -17,7 +18,7 @@ namespace MyGarage
             if (FuelCapacity <= 100)
             {
                 FuelCapacity++;
-                Console.WriteLine("You have refueled you aircraft.");
+                Console.WriteLine("You have refueled you vehicle.");
             }
             else if (FuelCapacity == maxFuel)
             {
@@ -28,25 +29,26 @@ namespace MyGarage
 
         public void Drive()
         {
-            if (IsFlying)
+            if (IsMoving)
             {
-                Console.WriteLine("Your aircraft is already flying.");
+                Console.WriteLine("Your vehicle is already moving.");
             }
-            else if (!IsFlying)
+            else if (!IsMoving)
             {
-                Console.WriteLine("Your aircraft is now flying.");
+                Console.WriteLine("Your vehicle is now moving.");
+                IsMoving = true;
             }
         }
 
         public void Brake()
         {
-            if (IsFlying)
+            if (IsMoving)
             {
                 Console.WriteLine("You are coming to a stop.");
             }
-            else if (!IsFlying)
+            else if (!IsMoving)
             {
-                Console.WriteLine("You are not flying");
+                Console.WriteLine("You are not moving.");
             }
         }
     }

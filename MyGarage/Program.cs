@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyGarage.Vehicles.Cars;
+using System;
 
 namespace MyGarage
 {
@@ -6,7 +7,17 @@ namespace MyGarage
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var driver = "Jeressia";
+
+            var myCar = new Soul();
+
+            myCar.FastenSeatBelt(driver);
+            myCar.NumberOfHamsters = 26;
+
+            myCar.HamsterParty();
+            myCar.Drive();
+            myCar.Brake();
+
         }
     }
 }
